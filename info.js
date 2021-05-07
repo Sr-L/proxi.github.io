@@ -16,8 +16,7 @@ server.listen(port, host, () => {
 
  */
 
-
-const axios = require('axios');
+//
 
 axios({
         method: 'get',
