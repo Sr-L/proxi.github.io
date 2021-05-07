@@ -19,9 +19,16 @@ server.listen(port, host, () => {
 
 const axios = require('axios');
 
-axios({
-    method: 'get',
-    url: 'https://dotnetsafer.com/blog/wp-json/wp/v2/posts?_embed'
-  }).then(res=>{console.log(res.data)}
 
-  )
+window.onload(
+
+    axios({
+        method: 'get',
+        url: 'https://dotnetsafer.com/blog/wp-json/wp/v2/posts?_embed'
+      }).then(res=>{console.log(res.data)}
+    
+      )
+
+
+
+)
