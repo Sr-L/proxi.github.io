@@ -16,43 +16,18 @@ server.listen(port, host, () => {
 
  */
 
-//
-
 const app = document.getElementById("root");
-axios({
-    method: 'get',
-    url: 'https://dotnetsafer.com/blog/wp-json/wp/v2/posts?_embed'
-}).then(res => {
-    console.log(res.data)
-
-
-    for (data of res.data) {
-
-        let div = document.createElement('div')
-
-        div.innerHTML = dataDom(data)
-
-        app.appendChild(div)
 
 
 
-    }
-})
-
-
-
-
-
-const dataDom = (data) => {
-
-    //const media="data._embebed.featuredmedia.link"
-
-
-    return `<p>${data.title.rendered}<p>
-
-   
-    
-    <p>${data.link}<p>    
-        `
-
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
 }
+
+let res = httpGet('https://dotnetsafer.com/blog/wp-json/wp/v2/posts?_embed')
+
+app.innerText = res;
